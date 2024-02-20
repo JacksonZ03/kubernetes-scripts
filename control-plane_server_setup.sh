@@ -124,6 +124,9 @@ sudo kubectl taint nodes --all node-role.kubernetes.io/control-plane-
 # This is the same command but it's used for older versions of k8s
 sudo kubectl taint nodes --all node-role.kubernetes.io/master- # May return an error when run on new versions of k8s, but that's okay. Just ignore it.
 
+# Install ingress-nginx
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.2/deploy/static/provider/cloud/deploy.yaml
+
 # Remove the iptables rules that were added by the k8s installation
 sudo rm -rf ~/.iptables-backup.txt
 
