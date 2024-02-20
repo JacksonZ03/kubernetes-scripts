@@ -17,10 +17,16 @@ sudo apt update -y && sudo apt upgrade -y
 
 # Configure firewall rules
 sudo ufw allow 6443/tcp # k8s API server
+sudo ufw allow 8443/tcp # k8s API server
 sudo ufw allow 2379:2380/tcp # etcd server client API
 sudo ufw allow 10250/tcp # k8s Kubelet API
 sudo ufw allow 10259/tcp # kube-scheduler
 sudo ufw allow 10257/tcp # kube-controller-manager
+sudo ufw allow 179/tcp # BGP (calico)
+sudo ufw allow 5473/tcp # calico
+sudo ufw allow 4789 # calico
+sudo ufw allow 443 # HTTPS
+sudo ufw allow 80 # HTTP
 
 # Make a backup copy of the current iptables rules in case something goes wrong
 sudo iptables-save > ~/.iptables-backup.txt
