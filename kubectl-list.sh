@@ -20,6 +20,9 @@ resources=(
 )
 
 # Manually parse command-line arguments
+## The script supports the following flags:
+## -A, --all-namespaces: List resources across all namespaces
+## -n, --namespace: List resources in the specified namespace
 while [[ $# -gt 0 ]]; do
     case $1 in
         -A|--all-namespaces)
