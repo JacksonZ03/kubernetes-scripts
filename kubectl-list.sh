@@ -23,6 +23,7 @@ resources=(
 ## The script supports the following flags:
 ## -A, --all-namespaces: List resources across all namespaces
 ## -n, --namespace: List resources in the specified namespace
+## -o, --output: Output format (json|yaml|wide|custom-columns=...)
 while [[ $# -gt 0 ]]; do
     case $1 in
         -A|--all-namespaces)
@@ -39,7 +40,18 @@ while [[ $# -gt 0 ]]; do
                 echo "Error: Argument for $1 is missing" >&2
                 exit 1
             fi
-        ;;
+            ;;
+        -o|--output)
+            if [[ -n $2 && ${2:0:1} != "-" ]]; then
+                # Trim leading and trailing whitespaces in the output argument
+                output=$(echo "$2" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+                kubectl_flags="$kubectl_flags -o $output"
+                shift 2 # Move past argument and its value
+            else
+                echo "Error: Argument for $1 is missing" >&2
+                exit 1
+            fi
+            ;;
         *)
             echo "Invalid option: $1" >&2
             exit 1
