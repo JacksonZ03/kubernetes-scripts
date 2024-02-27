@@ -14,6 +14,9 @@ resources=(
     "Persistent Volume Claims : persistentvolumeclaims"
     "Cluster Issuers : clusterissuers"
     "Issuers : issuers"
+    
+    # "Cluster Roles : clusterroles"
+    # "Cluster Role Bindings : clusterrolebindings"
     # "Challenges : challenges"
     # "Stateful Sets : statefulsets"
     # "Daemon Sets : daemonsets"
