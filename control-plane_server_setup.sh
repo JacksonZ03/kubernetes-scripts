@@ -125,6 +125,11 @@ sudo kubectl taint nodes --all node-role.kubernetes.io/control-plane-
 # This is the same command but it's used for older versions of k8s
 sudo kubectl taint nodes --all node-role.kubernetes.io/master- # May return an error when run on new versions of k8s, but that's okay. Just ignore it.
 
+# Install Helm
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+chmod 700 get_helm.sh
+sudo ./get_helm.sh
+
 # Install ingress-nginx
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.2/deploy/static/provider/cloud/deploy.yaml
 
