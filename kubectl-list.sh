@@ -6,6 +6,7 @@ resources=(
     "Services : services"
     "Deployments : deployments"
     "Pods : pods"
+    "Jobs : jobs"
     "Config Maps : configmaps"
     "Secrets : secrets"
     "Certificates : certificates"
