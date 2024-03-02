@@ -130,9 +130,6 @@ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scrip
 chmod 700 get_helm.sh
 sudo ./get_helm.sh
 
-# Install ingress-nginx
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.2/deploy/static/provider/cloud/deploy.yaml
-
 # Remove the iptables rules that were added by the k8s installation
 sudo rm -rf ~/.iptables-backup.txt
 
