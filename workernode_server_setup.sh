@@ -87,7 +87,7 @@ sudo rm -rf ~/.iptables-backup.txt
 
 # Echo a colorful success message to the user and explain the next steps
 echo $'\nThe server setup has been successful! The server is now ready to be used as a k8s control-plane node.'
-echo -e "\033[1;35m\nRun \`\033[1;33mkubeadm token create --print-join-command\033[1;35m\` on the master/control-plane node to output the kubeadm join command.\033[0m"
+echo -e "\033[1;35m\nRun \`\033[1;33msudo kubeadm token create --print-join-command\033[1;35m\` on the master/control-plane node to output the kubeadm join command.\033[0m"
 echo -e "\033[1;35mThen, copy that join command which looks something like this:\033[1;35m"
 echo -e "\033[0;36m\n kubeadm join <ip_address>:6443 --token <string_of_random_characters> --discovery-token-ca-cert-hash sha256:<long_string_of_random_characters>\033[0m"
 echo -e "\033[1;35m\n...And run the join command on THIS machine to join the cluster as a worker node.\n\033[1;35m"
