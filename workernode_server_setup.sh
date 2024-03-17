@@ -49,9 +49,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 # Remove the existing containerd configuration file installed by Docker (if it exists)
 sudo rm -rf "/etc/containerd/config.toml"
 # Replace with the default containerd configuration file
-sudo su
-containerd config default > "/etc/containerd/config.toml"
-exit
+sudo containerd config default | sudo tee "/etc/containerd/config.toml" > /dev/null
 
 # Use sed to find and replace the strings in the config.toml file
 CONTAINERD_CONFIG_FILE="/etc/containerd/config.toml"
